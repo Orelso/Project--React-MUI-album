@@ -1,31 +1,33 @@
 import React from "react";
 import { Typography, AppBar, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container, Button, Paper } from "@mui/material";
-import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
-
-import NavBarHeading from './styles/stylesNavBar';
+import CatchingPokemonTwoToneIcon from '@mui/icons-material/CatchingPokemonTwoTone';import NavBarHeading from './styles/stylesNavBar';
 import StyleIcon from './styles/stylesIcon';
+import BasicModal from "./view";
+import StickyFooter from "./footer";
 
 const cards =[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
 
 const App = () => {
 
     return (
         <>
             <CssBaseline />  
-            <AppBar position="relative"> 
+            <AppBar position="relative" sx={{backgroundColor: ' #2a75bb'}}> 
                 <Toolbar>
                     <StyleIcon>
-                    <PhotoCameraIcon />
+                    <CatchingPokemonTwoToneIcon />
                     </StyleIcon>
                     <NavBarHeading>
-                    <Typography variant="h4">Pokemon</Typography>
+                    <Typography sx={{ color:'#ffcb05'}}variant="h4">Pokemon</Typography>
                     </NavBarHeading>
                 </Toolbar>
             </AppBar>
             <main>
                 <div>
                     <Container maxWidth="sm">
-                        <Typography variant="h2" align="center" color="textPrimary" gutterBottom>Pokedex</Typography>
+                        <Typography variant="h2" align="center" sx={{ color: '#ffcb05', textShadow: '2px 2px 5px #3c5aa6'}} gutterBottom>Pokedex</Typography>
                         <Typography variant="h5" align="center" color="textSecondary" paragraph>Hello this is a pokedex of all the Pokemon that have ever exsisted. Are you ready to be a Pokemon Master like no one ever was.</Typography>
                         <div>
                             <Grid container spacing={4} justifyContent="center">
@@ -50,20 +52,19 @@ const App = () => {
                              <Card sx={{height: '100%', display: 'flex', flexDirection: 'column', width: '100%'}}>
                                  <CardMedia 
                                  sx={{paddingTop: '98%'}}
+                                 onclick="enlargeImg(this)"
                                  image="https://lorempokemon.fakerapi.it/pokemon"
                                  title="Image title"
                                  />
                                  <CardContent sx={{flexGrow: 1}}>
                                      <Typography gutterBottom variant="h5">
-                                         Heading
+                                         Pokemon Name
                                      </Typography>
                                      <Typography>
-                                         This is a social media card. You can use this to describe content.
-                                     </Typography>
+                                     Cranidos wailmer trubbish cresselia pancham shieldon aipom dewpider. Vigoroth staravia magnezone budew latios foongus trapinch. Terrakion huntail torterra cubone zweilous dragonair.</Typography>
                                  </CardContent>
                                  <CardActions>
-                                     <Button size="small" color="primary">View</Button>
-                                     <Button size="small" color="primary">Edit</Button>
+                                     <BasicModal />
                                  </CardActions>
                              </Card>
                     </Grid>
@@ -71,7 +72,11 @@ const App = () => {
                     </Grid>
                 </Container>
             </main>
-            <footer sx={{backgroundColor: 'primary', padding: '50px 0'}}>
+
+            <StickyFooter>
+                
+            </StickyFooter>
+            {/* <footer sx={{backgroundColor: 'primary', padding: '50px 0'}}>
                     <Typography variant="h6" align='center' gutterBottom>
                             Footer
                     </Typography>
@@ -79,7 +84,7 @@ const App = () => {
                             info
                     </Typography>
 
-            </footer>
+            </footer> */}
         </>
     )
 }

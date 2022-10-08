@@ -2,9 +2,8 @@ import { spacing, styled } from '@mui/system';
 
 
 const NavBarHeading = styled('div')({
-    color: 'pink',
-    backgroundColor: 'orange',
-    padding: '20px',
+    color: '#ffcb05',
+    padding: '20px'
     
   });
 
