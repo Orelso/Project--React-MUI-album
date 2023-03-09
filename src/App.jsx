@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+
 import {
   Typography,
   AppBar,
@@ -22,6 +24,11 @@ import StickyFooter from "./footer";
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const App = () => {
+  const [numCards, setNumCards] = useState(9);
+
+  const handleCollectClick = () => {
+    setNumCards(numCards + 9);
+  };
   return (
     <>
       <CssBaseline />
@@ -66,22 +73,27 @@ const App = () => {
                     variant="contained"
                     color="primary"
                   >
-                    Find Pokemon
+                    Refresh Pokemon
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Collect pokemon
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    onClick={handleCollectClick}
+                  >
+                    Add 9 more Pokemon
                   </Button>
                 </Grid>
               </Grid>
             </div>
           </Container>
         </div>
+
         <Container maxWidth="md" sx={{ padding: "20px 0" }}>
           <Grid container spacing={4}>
-            {cards.map(() => (
-              <Grid item xs={12} sm={6} md={4}>
+            {Array.from({ length: numCards }).map((_, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
                 <Card
                   sx={{
                     height: "100%",
